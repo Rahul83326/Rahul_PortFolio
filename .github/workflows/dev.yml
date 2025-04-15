@@ -1,0 +1,25 @@
+name: Development
+
+on:
+  push:
+    branches:
+      - prod
+
+jobs:
+  build:
+    runs-on: ubuntu
+    steps:       
+      - name: Clone Repositories
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: |
+          npm i
+          
+      - name: Build React Application
+        run: |
+          npm build
+          
+      - name: Restart Server
+        run: |
+          sudo service nginx restart
