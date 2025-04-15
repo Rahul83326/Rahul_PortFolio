@@ -18,7 +18,7 @@ jobs:
           
       - name: Build React Application
         run: |
-          npm build
+          npm run build
           
       - name: Restart Server
         run: |
